@@ -1,0 +1,3 @@
+include 'desktop', 'core'
+include ':curve-lib'
+project(':curve-lib').projectDir = new File("../curve-lib")

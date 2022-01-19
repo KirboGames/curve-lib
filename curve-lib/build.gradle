@@ -1,0 +1,11 @@
+plugins {
+    id 'java'
+}
+sourceCompatibility = JavaVersion.VERSION_1_8
+java.targetCompatibility = JavaVersion.VERSION_1_8
+group 'com.intkgc'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
