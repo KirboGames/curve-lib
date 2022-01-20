@@ -9,3 +9,19 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
+
+task dist(type: Jar) {
+    manifest {
+    }
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}
+
+dependencies {
+    implementation "com.badlogicgames.gdx:gdx:1.10.0"
+    implementation 'org.json:json:20180813'
+    implementation 'org.reflections:reflections:0.10.2'
+}

@@ -1,10 +1,12 @@
 package com.intkgc.curvelibexample;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.intkgc.curve.TEST;
+import com.intkgc.curve.config.Settings;
 
 public class Example extends ApplicationAdapter {
     SpriteBatch batch;
@@ -12,7 +14,12 @@ public class Example extends ApplicationAdapter {
 
     @Override
     public void create() {
-        TEST.main(null);
+        FileHandle settingsFile = Gdx.files.external("CurveTest/settings.json");
+        if (!settingsFile.exists()) settingsFile.writeString("{}", false);
+        Settings.load(settingsFile, SettingsExample.class);
+        SettingsExample.testBoolean = true;
+        Settings.save(settingsFile, SettingsExample.class);
+
         batch = new SpriteBatch();
         img = new Texture("badlogic.jpg");
     }

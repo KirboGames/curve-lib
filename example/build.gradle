@@ -56,6 +56,7 @@ project(":core") {
 
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
+        implementation 'org.json:json:20180813'
         implementation project(':curve-lib')
     }
 }
