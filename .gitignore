@@ -1,5 +1,3 @@
-.idea/
-curve-lib/build/
-example/build/
-/curve-lib/.gradle
-/example/.gradle
+/.idea/
+/build/
+/.gradle/
