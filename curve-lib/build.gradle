@@ -3,11 +3,14 @@ plugins {
 }
 sourceCompatibility = JavaVersion.VERSION_1_8
 java.targetCompatibility = JavaVersion.VERSION_1_8
-group 'com.intkgc'
-version '1.0-SNAPSHOT'
+group 'com.intkgc.curve-lib'
+version '0.1-beta'
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://jitpack.io"
+    }
 }
 
 task dist(type: Jar) {
