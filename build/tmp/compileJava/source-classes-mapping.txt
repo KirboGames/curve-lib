@@ -1,6 +1,0 @@
-com/intkgc/curve/config/Settings.java
- com.intkgc.curve.config.Settings
-com/intkgc/curve/config/Parameter.java
- com.intkgc.curve.config.Parameter
-com/intkgc/curve/TEST.java
- com.intkgc.curve.TEST
