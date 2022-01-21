@@ -8,14 +8,9 @@ version '0.2-beta'
 
 repositories {
     mavenCentral()
-    maven {
-        url "https://jitpack.io"
-    }
 }
 
 task dist(type: Jar) {
-    manifest {
-    }
     dependsOn configurations.runtimeClasspath
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
@@ -27,5 +22,4 @@ dependencies {
     implementation "com.badlogicgames.gdx:gdx:1.10.0"
     implementation 'org.json:json:20211205'
     implementation 'org.reflections:reflections:0.10.2'
-    implementation 'com.github.User:KirboGames:0.2-beta'
 }
