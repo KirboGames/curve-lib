@@ -5,15 +5,13 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 
-public class Camera2D {
-
-    public OrthographicCamera CAMERA;
-    public int SIZE, W, H;
+public class Camera2D extends OrthographicCamera {
+    public int SIZE;
     public float X, Y;
 
     public void update(SpriteBatch b) {
-        CAMERA.update();
-        b.setProjectionMatrix(CAMERA.combined);
+        this.update();
+        b.setProjectionMatrix(this.combined);
     }
 
     private void configure(int size) {
@@ -21,20 +19,15 @@ public class Camera2D {
                 h = Gdx.graphics.getHeight();
 
         if (h < w) {
-            CAMERA.setToOrtho(false, size, size * h / w);
-            W = size;
-            H = size * h / w;
+            this.setToOrtho(false, size, size * h / w);
         } else {
-            CAMERA.setToOrtho(false, size * w / h, size);
-            W = size * w / h;
-            H = size;
+            this.setToOrtho(false, size * w / h, size);
         }
 
-        CAMERA.translate(X, Y);
+        this.translate(X, Y);
     }
 
     public Camera2D(int size) {
-        CAMERA = new OrthographicCamera();
         configure(size);
         SIZE = size;
     }
@@ -45,7 +38,7 @@ public class Camera2D {
 
     public void lookAt(float x, float y, boolean smooth) {
         if (!smooth) {
-            CAMERA.translate(-X + x, -Y + y);
+            this.translate(-X + x, -Y + y);
             X = x;
             Y = y;
         } else {
@@ -57,20 +50,12 @@ public class Camera2D {
         }
     }
 
-    public void resize(int size) {
+    public void reconfigure(int size) {
         SIZE = size;
         configure(size);
     }
 
-    public void resize() {
+    public void reconfigure() {
         configure(SIZE);
-    }
-
-    public float touchX() {
-        return Gdx.input.getX() + X;
-    }
-
-    public float touchY() {
-        return H - Gdx.input.getY() + Y;
     }
 }

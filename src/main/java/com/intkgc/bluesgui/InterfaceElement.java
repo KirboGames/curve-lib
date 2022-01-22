@@ -47,14 +47,14 @@ public abstract class InterfaceElement {
         if (!hidden) {
             if (Gdx.input.isTouched()) {
                 if (!isTouched) {
-                    if (Gdx.input.getX() > x && Gdx.input.getX() < x + width && cam.H - Gdx.input.getY() > y && cam.H - Gdx.input.getY() < y + height)
+                    if (Gdx.input.getX() > x && Gdx.input.getX() < x + width && cam.viewportHeight - Gdx.input.getY() > y && cam.viewportHeight - Gdx.input.getY() < y + height)
                         this_touched = true;
                     isTouched = true;
 
                 }
             }
             if (this_touched && !Gdx.input.isTouched()) {
-                if (Gdx.input.getX() > x && Gdx.input.getX() < x + width && cam.H - Gdx.input.getY() > y && cam.H - Gdx.input.getY() < y + height) {
+                if (Gdx.input.getX() > x && Gdx.input.getX() < x + width && cam.viewportHeight - Gdx.input.getY() > y && cam.viewportHeight - Gdx.input.getY() < y + height) {
                     onClick(true);
                     onClick();
                     wasClicked = true;
