@@ -1,11 +1,12 @@
 plugins {
     id 'java'
+    id 'maven-publish'
     id 'org.jetbrains.kotlin.jvm' version '1.6.10'
 }
 sourceCompatibility = JavaVersion.VERSION_1_8
 java.targetCompatibility = JavaVersion.VERSION_1_8
-group 'com.intkgc.curve-lib'
-version '0.2-beta'
+group = 'com.github.KirboGames'
+version '0.1-beta'
 
 repositories {
     mavenCentral()
