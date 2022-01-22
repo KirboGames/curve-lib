@@ -103,18 +103,6 @@ public class Registry<I extends RegistryObject> {
     }
 
     /**
-     * @param package_ objects-package
-     * @return ArrayList of objects in the same package
-     */
-    public ArrayList<I> getAllObjectsFromPackage(String package_) {
-        ArrayList<I> arrayList = new ArrayList<>();
-        for (I object : objects) {
-            if (object.package_.equals(package_)) arrayList.add(object);
-        }
-        return arrayList;
-    }
-
-    /**
      * WHY?
      *
      * @return ArrayList with all objects (lol)
